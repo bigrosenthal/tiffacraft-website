@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #f6f1e3;
+  --cream-deep: #e8dfc8;
+  --moss: #6f9a4c;
+  --moss-deep: #3d5a32;
+  --sage: #c5d4b4;
+  --mint: #dce9cf;
+  --ink: #1e2a1c;
+  --ink-soft: #4a5746;
+  --fog: #3d3848;
+  --fog-mist: #6b6478;
+  --lantern: #e4b56a;
+  --blush: #e8b8ae;
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-cream-deep: var(--cream-deep);
+  --color-moss: var(--moss);
+  --color-moss-deep: var(--moss-deep);
+  --color-sage: var(--sage);
+  --color-mint: var(--mint);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-fog: var(--fog);
+  --color-fog-mist: var(--fog-mist);
+  --color-lantern: var(--lantern);
+  --color-blush: var(--blush);
+  --font-sans: var(--font-nunito);
+  --font-display: var(--font-fredoka);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--sage);
+  color: var(--ink);
+}
+
+.font-display {
+  font-family: var(--font-fredoka), var(--font-nunito), ui-rounded, sans-serif;
+}
+
+.bg-block-grid {
+  background-color: var(--cream);
+  background-image:
+    linear-gradient(rgba(61, 90, 50, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(61, 90, 50, 0.045) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.bg-fog {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(107, 100, 120, 0.35), transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(30, 24, 36, 0.55), transparent 50%),
+    linear-gradient(160deg, #2a2633 0%, #1a181f 100%);
+}
+
+.short-thumb {
+  background-image:
+    linear-gradient(180deg, transparent 35%, rgba(18, 16, 14, 0.78) 100%),
+    linear-gradient(160deg, var(--thumb-from), var(--thumb-to));
+}
