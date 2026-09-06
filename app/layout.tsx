@@ -2,8 +2,16 @@ import type { Metadata } from "next";
 import { Fredoka, Nunito } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { siteConfig } from "@/lib/site";
+import { resolveSiteUrl, siteConfig } from "@/lib/site";
 import "./globals.css";
+
+function metadataBaseUrl() {
+  try {
+    return new URL(siteConfig.siteUrl);
+  } catch {
+    return new URL(resolveSiteUrl());
+  }
+}
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -16,7 +24,7 @@ const fredoka = Fredoka({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.siteUrl),
+  metadataBase: metadataBaseUrl(),
   title: {
     default: `${siteConfig.name} — Soft Minecraft Shorts`,
     template: `%s · ${siteConfig.name}`,
